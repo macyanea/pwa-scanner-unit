@@ -113,8 +113,11 @@ body, html {
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
   margin-top: 5px;
-    width: 200px;
-  max-width: 100%;
+  width: 100%;
+max-width: 200px;
+
+  width: 100%;
+  max-width: 200px;
 }
 
 /* Сканер */
@@ -143,6 +146,9 @@ body, html {
   /* Добавление обводки */
   border: 1px solid rgba(255, 255, 255, 0.2); /* Обводка */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);  /* Мягкая тень */
+
+  width: 100%;
+  max-width: 200px;
 }
 
 .result-section h2 {
@@ -527,6 +533,8 @@ body, html {
   }
 }
 .scanner-and-stats {
+  align-items: flex-start;
+  gap: 10px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -564,9 +572,11 @@ body, html {
   margin: 0;
 }
 .scanner-column {
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;       /* центрируем вложенные элементы */
-  justify-content: flex-start;
-  gap: 5px;                 /* равный отступ между сканером и карточкой */
+  align-items: flex-start;
+  gap: 5px;
 }
