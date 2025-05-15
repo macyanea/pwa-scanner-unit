@@ -561,13 +561,15 @@ body, html {
   height: calc(var(--size) * 2);
   width: calc(var(--size) * 3);
   position: relative;
-  transform-style: preserve-3d;
-  transform-origin: 50% 50%;
-  margin-top: calc(var(--size) * 1.5 * -1);
-  transform: rotateX(60deg) rotateZ(45deg) rotateY(0deg) translateZ(0px);
+
+  /* Удаляем transform, margin и т.д. */
+  margin: 10px 0 0 0;
+  transform: none;
+
+  /* 💡 Новый стиль для выравнивания */
   display: flex;
-  justify-content: flex-start; /* 🔹 по левому краю */
-  margin-top: 10px;
+  justify-content: flex-start;
+  align-items: flex-start;
   padding-left: 0;
 }
 
