@@ -99,10 +99,8 @@ body, html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: 5px;
+  gap: 10px;
   width: 100%;
-  flex-grow: 1;
 }
 
 
@@ -369,14 +367,13 @@ body, html {
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
-  margin-top: 0;         /* 🔻 Было 16px — убрали */
-  padding: 6px 10px;     /* 🔻 Меньше высота карточки */
+  padding: 10px;
+  margin-top: 5px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
-
 .block-btn {
   width: 70px;
   height: 35px;
@@ -522,10 +519,14 @@ body, html {
 }
 .scanner-and-stats {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: flex-start;
-  gap: 5px; /* расстояние между сканером и статистикой */
-  justify-content: center; /* опционально — центрирование */
-  flex-wrap: nowrap; /* для адаптива */
+  gap: 16px;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .block-stats {
