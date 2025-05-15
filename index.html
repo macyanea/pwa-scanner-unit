@@ -58,27 +58,33 @@
     <main class="main">
       <div class="scanner-card-wrapper">
         <div class="scanner-and-stats">
-          <section class="scanner-section">
-            <div id="camera-loader" class="camera-loader hidden">
-              <div class="spinner"></div>
-            </div>
-            <div id="scanner"></div>
-            <div id="scanner-frame" class="scanner-frame"></div>
-            <div id="scanner-pause-overlay" class="scanner-pause hidden">
-              <div class="scanner-spinner"></div>
-            </div>
-            
-          </section>
-          <section id="result" class="result-section hidden">
-          <h2 id="status">Ожидание сканирования...</h2>
-          <p id="time-record"></p>
-        </section>
+  <!-- Левая колонка: сканер + карточка -->
+  <div class="scanner-column">
+    <section class="scanner-section">
+      <!-- камера -->
+      <div id="camera-loader" class="camera-loader hidden">
+        <div class="spinner"></div>
+      </div>
+      <div id="scanner"></div>
+      <div id="scanner-frame" class="scanner-frame"></div>
+      <div id="scanner-pause-overlay" class="scanner-pause hidden">
+        <div class="scanner-spinner"></div>
+      </div>
+    </section>
 
-          <div id="block-stats" class="block-stats">
-            <h3>Статистика по блокам:</h3>
-            <ul id="stats-list"></ul>
-          </div>
-        </div>
+    <!-- КАРТОЧКА СОТРУДНИКА -->
+    <section id="result" class="result-section hidden">
+      <h2 id="status">Ожидание сканирования...</h2>
+      <p id="time-record"></p>
+    </section>
+  </div>
+
+  <!-- Правая колонка: статистика -->
+  <div id="block-stats" class="block-stats">
+    <h3>Статистика по блокам:</h3>
+    <ul id="stats-list"></ul>
+  </div>
+</div>
 
         <!-- ВЫБОР БЛОКА -->
         <div id="block-selector" class="block-selector">
