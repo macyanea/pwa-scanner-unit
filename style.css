@@ -47,7 +47,7 @@ body, html {
 /* Заголовок */
 .header {
   background: #14141e;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
   border-radius: 0 0 24px 24px;
 
@@ -60,7 +60,7 @@ body, html {
 /* Новый контейнер для текста внутри карточки */
 .header-container {
   display: inline-block;
-  padding: 10px 20px;
+  margin: 5px;
   background: rgba(255, 255, 255, 0.103);  /* Тот же фон, что и у таблицы */
   border-radius: 16px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.5);
@@ -76,10 +76,10 @@ body, html {
 }
 
 .header-title h1 {
-  margin: 0;
+  margin: 5px;
   font-size: 1.4rem;
   color: #fff;         /* Белый цвет текста */
-  font-weight: bold;   /* Жирный шрифт */
+  font-weight:bold;   /* Жирный шрифт */
   text-align: center;
   letter-spacing: 1px;
 }
@@ -108,7 +108,9 @@ body, html {
 /* Сканер и результат */
 .scanner-section,
 .result-section {
-  width: 100%; max-width: 300px; border-radius: 24px;
+  margin-bottom: 10px;
+  
+  width: 100%; max-width: 360px; border-radius: 24px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.5);
   animation: fadeIn 0.8s ease; overflow: hidden;
 }
@@ -126,18 +128,17 @@ body, html {
 
 /* Карточка с информацией о входе/выходе */
 .result-section {
-  background: rgba(20,20,30,0.9); 
+  width: 385px;
+  background: rgba(20,20,30,0.9);
   padding: 20px; 
   text-align: center;
-  border-radius: 24px;
-
-  /* Добавление обводки */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Обводка */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);  /* Мягкая тень */
+  border-radius: 24px; 
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); 
 }
 
 .result-section h2 {
-  margin: 0;
+  margin-bottom: 50px;
   font-size: 1.2rem;
   color: #fff;  /* Белый цвет текста */
 }
@@ -363,12 +364,14 @@ body, html {
 
 
 .block-selector {
+  max-width: 360px;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
-  margin-top: 0;         /* 🔻 Было 16px — убрали */
-  padding: 6px 10px;     /* 🔻 Меньше высота карточки */
+  gap: 10px;
+  margin-bottom: 20px;         /* 🔻 Было 16px — убрали */
+  padding: 10px 20px;     /* 🔻 Меньше высота карточки */
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -378,8 +381,8 @@ body, html {
 .block-btn {
   width: 70px;
   height: 35px;
-  background-color: #09f;
-  border: 1px solid rgba(255, 255, 255, 0.3); /* обводка */
+  background-color: rgb(0, 119, 255);
+  border: 3px solid rgba(255, 255, 255, 0.3); /* обводка */
   border-radius: 12px;
   color: #fff;
   font-size: 1rem;
@@ -391,11 +394,11 @@ body, html {
 
 
 .block-btn:hover {
-  background-color: #007acc;
+  background-color: rgba(0, 119, 255, 0.514);
 }
 
 .block-btn.active {
-  background-color: #005fa3;
+  background-color: #4e4e4ebd;
   font-weight: bold;
 }
 
@@ -501,23 +504,27 @@ body, html {
 }
 
 
-/* Подсветка карточки при успешной записи */
-.result-section.highlight {
-  animation: highlightFlash 1.6s ease;
-}
 
 /* Анимация подсветки */
 @keyframes highlightFlash {
-  0%   {
-    box-shadow: 0 0 8px 3px rgba(255, 255, 255, 0.5);
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
   }
   50% {
-    box-shadow: 0 0 16px 6px rgba(255, 255, 255, 0.6);
+    transform: scale(1.03);
+    box-shadow: 0 0 12px 6px rgba(255, 255, 255, 0.4);
   }
   100% {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
   }
 }
+
+.result-section.highlight {
+  animation: highlightFlash 1s ease-in-out;
+}
+
 .scanner-and-stats {
   display: flex;
   align-items: flex-start;
