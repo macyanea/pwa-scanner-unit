@@ -527,6 +527,7 @@ body, html {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  overflow-y: hidden;
   box-sizing: border-box;
   max-width: 100%;
 }
@@ -540,7 +541,7 @@ body, html {
 
   /* 🔽 вот здесь контролируется ширина */
   width: 150px; 
-  height: 200px;
+  height: 300px;
   box-sizing: border-box;
 }
 
