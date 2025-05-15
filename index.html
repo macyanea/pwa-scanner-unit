@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UNIT</title>
+  <style>
+  html, body {
+    overflow: hidden;
+    touch-action: none;
+  }
+</style>
+
+
+  <!-- Иконка вкладки -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- PWA: Apple / iOS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="apple-touch-icon-precomposed" sizes="180x180" href="apple-touch-icon-precomposed.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="UNIT">
+  <meta name="theme-color" content="#14141e">
+
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- CSS + JS -->
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/html5-qrcode" defer></script>
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <!-- Авторизационная модалка -->
+  <div id="login-modal-overlay" class="modal-overlay"></div>
+  <div id="login-modal" class="modal">
+    <div class="modal-content show">
+      <h2>Авторизация</h2>
+      <input type="text" id="login-input" placeholder="Логин">
+      <input type="password" id="pass-input" placeholder="Пароль">
+      <button id="login-btn">Войти</button>
+      <div id="login-loader" class="loader hidden">
+        <div class="spinner"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay"></div>
+  <div class="page">
+    <header class="header">
+      <div class="header-container">
+        <div class="header-title">
+          <h1>Мониторинг рабочего времени сотрудников</h1>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+  <div class="scanner-card-wrapper">
+    <div class="scanner-and-stats">
+      <section class="scanner-section">
+        <div id="camera-loader" class="camera-loader hidden">
+          <div class="spinner"></div>
+        </div>
+        <div id="scanner"></div>
+        <div id="scanner-frame" class="scanner-frame"></div>
+        <div id="scanner-pause-overlay" class="scanner-pause hidden">
+          <div class="scanner-spinner"></div>
+        </div>
+      </section>
+<div id="block-stats" class="block-stats">
+  <h3>Статистика по блокам:</h3>
+  <ul id="stats-list"></ul>
+</div>
+
+    
+
+    <div id="block-selector" class="block-selector">
+      <button class="block-btn" data-block="3">3</button>
+      <button class="block-btn" data-block="3a">3а</button>
+      <button class="block-btn" data-block="4">4</button>
+      <button class="block-btn" data-block="4a">4а</button>
+      <button class="block-btn" data-block="7">7</button>
+      <button class="block-btn" data-block="8">8</button>
+      <button class="block-btn" data-block="9">9</button>
+      <button class="block-btn" data-block="10">10</button>
+      <button class="block-btn" data-block="ИТР">ИТР</button>
+    </div>
+
+    <section id="result" class="result-section hidden">
+      <h2 id="status">Ожидание сканирования...</h2>
+      <p id="time-record"></p>
+    </section>
+  </div>
+</main>
+
+  </div>
+
+  <!-- Модалка ввода ФИО -->
+  <div id="modal-overlay" class="modal-overlay hidden"></div>
+  <div id="fio-modal" class="modal hidden">
+    <div class="modal-content hide">
+      <h2>Введите ФИО</h2>
+      <input type="text" id="fio-input" placeholder="Фамилия Имя Отчество">
+      <button id="submit-fio">Сохранить</button>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+</body>
+</html>
