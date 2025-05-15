@@ -1,0 +1,522 @@
+/* === style.css === */
+
+/* Сброс */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body, html {
+  margin: 0; padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0a0a14; color: #eee; height: 100%;
+}
+.page {
+  display: flex; flex-direction: column; min-height: 100%; max-width: 1200px; margin: 0 auto;
+}
+
+/* Отключаем мешающий фон .overlay */
+.overlay {
+  display: none !important;
+}
+
+/* Авторизационная оверлей и модалка */
+#login-modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5); z-index: 10000;
+  pointer-events: auto;
+}
+#login-modal {
+  position: fixed; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 10001; pointer-events: auto;
+}
+.modal-overlay.hidden { display: none; }
+.modal.hidden         { display: none !important; }
+
+.modal-content.show {
+  display: block;
+}
+.loader {
+  display: flex; justify-content: center; margin-top: 10px;
+}
+.loader.hidden { display: none; }
+#login-loader .spinner {
+  width: 24px; height: 24px; border-width: 3px;
+}
+
+/* Заголовок */
+.header {
+  background: #14141e;
+  padding: 20px;
+  text-align: center;
+  border-radius: 0 0 24px 24px;
+
+  /* Внешняя рамка и тень */
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  border-top: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+}
+
+/* Новый контейнер для текста внутри карточки */
+.header-container {
+  display: inline-block;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.103);  /* Тот же фон, что и у таблицы */
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+
+  /* Добавление обводки */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.header-title {
+  text-align: center;
+  text-transform: none; /* Убираем заглавные буквы */
+  letter-spacing: 0px;  /* Межбуквенный интервал, как у остального текста */
+}
+
+.header-title h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #fff;         /* Белый цвет текста */
+  font-weight: bold;   /* Жирный шрифт */
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Основной контент */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px 20px 0 20px;
+}
+
+.scanner-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  width: 100%;
+  flex-grow: 1;
+}
+
+
+/* Сканер и результат */
+.scanner-section,
+.result-section {
+  width: 100%; max-width: 300px; border-radius: 24px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  animation: fadeIn 0.8s ease; overflow: hidden;
+}
+/* Сканер */
+.scanner-section {
+  position: relative;
+  aspect-ratio: 1/1;
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  /* Добавление обводки и тени */
+  border: 1px solid rgba(255, 255, 255, 0.3);  /* Обводка для сканера */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);   /* Мягкая тень */
+}
+/* Карточка с информацией о входе/выходе */
+.result-section {
+  background: rgba(20,20,30,0.9); 
+  padding: 20px; 
+  text-align: center;
+  border-radius: 24px;
+
+  /* Добавление обводки */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Обводка */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);  /* Мягкая тень */
+}
+
+.result-section h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #fff;  /* Белый цвет текста */
+}
+
+.result-section p {
+  color: #ccc; /* Цвет для описания */
+  font-size: 1rem;
+}
+
+.hidden { display: none; }
+#status { font-size: 1.2rem; margin-bottom: 10px; }
+#time-record { font-size: 1rem; color: #ccc; }
+
+/* Видео */
+.scanner-section #scanner,
+.scanner-section video,
+.scanner-section canvas {
+  width: 100% !important; height: 100% !important; object-fit: cover;
+}
+
+/* История */
+.history-section {
+  background: rgba(20,20,30,0.9);
+  margin: 20px;
+  border-radius: 24px;
+  padding: 20px;
+
+  /* Внешняя рамка и тень */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+}
+
+.history-section h2 { text-align: center; margin: 0 0 10px; }
+/* Новый контейнер для текста "Последние действия" */
+/* Новый контейнер для текста "Последние действия" */
+.history-title {
+  display: inline-block;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.103); /* Тот же фон, что и у карточки */
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  margin-bottom: 20px;  /* Отступ снизу, чтобы отделить от таблицы */
+
+  /* Выравнивание по центру */
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  /* Добавление внешней обводки */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.history-title h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #fff;         /* Белый цвет текста */
+  font-weight: bold;   /* Жирный шрифт */
+  text-align: center;
+  letter-spacing: 1px;  /* Межбуквенный интервал */
+}
+
+
+.table-wrapper {
+  overflow-x: auto; border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+#history-table { width: 100%; border-collapse: collapse; }
+#history-table th,
+#history-table td {
+  padding: 10px; text-align: center;
+  border-bottom: 1px solid #333; border-right: 1px solid #333;
+  font-size: 0.9rem;
+}
+#history-table th:last-child,
+#history-table td:last-child {
+  border-right: none;
+}
+#history-table th {
+  background: rgba(255,255,255,0.05);
+}
+
+/* Отключаем подсветку */
+.success-animation {
+  animation: none !important;
+}
+
+/* Модалки общие */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px); z-index: 998;
+}
+.modal {
+  position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+  z-index: 999;
+}
+.modal-content {
+  display: none; background: rgba(30,30,50,0.95); padding: 30px;
+  border-radius: 24px; box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+  width: 90%; max-width: 360px; text-align: center;
+}
+.modal-content.show {
+  display: block; animation: modalFadeIn 0.4s forwards;
+}
+.modal-content.hide {
+  display: none;
+}
+.modal-content input {
+  width: 100%; padding: 12px 16px; margin: 15px 0;
+  border: 1px solid #555; border-radius: 16px;
+  background: rgba(255,255,255,0.1); color: #fff; font-size: 1rem;
+}
+.modal-content button {
+  width: 100%; padding: 12px; border: none; border-radius: 16px;
+  background: #09f; color: #fff; font-size: 1rem; cursor: pointer;
+  transition: background 0.3s;
+}
+.modal-content button:hover {
+  background: #007acc;
+}
+
+/* Тосты */
+#toast-container {
+  position: fixed; top: 20px; right: 20px; z-index: 1000;
+}
+.toast {
+  background: #4caf50; color: #fff; padding: 12px 20px; margin-top: 10px;
+  border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  font-size: 0.9rem; opacity: 0; transform: translateX(100%);
+  animation: slideIn 0.5s forwards, fadeOut 0.5s 2.5s forwards;
+}
+
+/* Лоадер камеры и спиннер */
+.camera-loader {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: rgba(10,10,20,0.8); z-index: 2;
+}
+.camera-loader.hidden {
+  display: none;
+}
+.spinner {
+  width: 40px; height: 40px;
+  border: 4px solid #333; border-top: 4px solid #09f;
+  border-radius: 50%; animation: spin 1s linear infinite;
+}
+
+/* Адаптив */
+@media (min-width: 1024px) {
+  .main { padding: 40px; }
+}
+@media (max-width: 768px) {
+  .header h1 { font-size: 1.5rem; }
+  #history-table th, #history-table td { padding: 8px; font-size: 0.8rem; }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(50px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes slideIn {
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeOut {
+  to { opacity: 0; transform: translateX(100%); }
+}
+/* Модалка (фон) */
+#login-modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5); z-index: 10000;
+  pointer-events: auto;
+}
+
+/* Основной контейнер модального окна */
+#login-modal {
+  position: fixed; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 10001; pointer-events: auto;
+}
+
+/* Контейнер для контента модалки */
+.modal-content {
+  display: block; background: rgba(30,30,50,0.95); padding: 30px;
+  border-radius: 24px; box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+  width: 90%; max-width: 360px; text-align: center;
+
+  /* Добавление обводки для всего контейнера модалки */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Внутренние элементы */
+.modal-content input {
+  width: 100%; padding: 12px 16px; margin: 15px 0;
+  border: 1px solid rgba(255,255,255,0.2);  /* Обводка для полей ввода */
+  border-radius: 16px;
+  background: rgba(255,255,255,0.1); color: #fff; font-size: 1rem;
+}
+
+.modal-content button {
+  width: 100%; padding: 12px; border: none; border-radius: 16px;
+  background: #09f; color: #fff; font-size: 1rem; cursor: pointer;
+  transition: background 0.3s;
+  
+  /* Обводка для кнопки */
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.modal-content button:hover {
+  background: #007acc;
+}
+
+/* Спиннер в модальном окне */
+#login-loader .spinner {
+  width: 24px; height: 24px; border-width: 3px;
+}
+
+
+.block-selector {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 0;         /* 🔻 Было 16px — убрали */
+  padding: 6px 10px;     /* 🔻 Меньше высота карточки */
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.block-btn {
+  width: 70px;
+  height: 35px;
+  background-color: #09f;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* обводка */
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+
+.block-btn:hover {
+  background-color: #007acc;
+}
+
+.block-btn.active {
+  background-color: #005fa3;
+  font-weight: bold;
+}
+
+
+/* ===============================
+   Pause Overlay Loader
+=============================== */
+.scanner-pause {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.scanner-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top: 4px solid #09f;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* .hidden ensures overlay stays hidden */
+
+/* Убираем штатную надпись "Scanner paused" */
+#scanner > .html5-qrcode-status,
+#scanner > .html5-qrcode-status * {
+  display: none !important;
+  visibility: hidden !important;
+}
+/* Скрываем дефолтную панель статуса html5-qrcode */
+#scanner > div:not(video):not(canvas) {
+  display: none !important;
+}
+/* рамка зоны сканирования */
+.scanner-section { position: relative; }
+/* рамка зоны сканирования */
+.scanner-frame {
+  position: absolute;
+  /* отступ от краёв сканера */
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  
+  /* белая обводка */
+  border: 2px solid rgba(255,255,255,0.75);
+  border-radius: 12px;
+  
+  /* вот этот внешний бокс-ша­доу:
+     - 0 смещение по X и Y
+     - 0 радиус размытия
+     - 2000px радиус распространения
+     - rgba(...) цвет тени
+     Всё, что вне рамки, окажется покрыто этим полупрозрачным слоем */
+  box-shadow: 0 0 0 2000px rgba(0,0,0,0.5);
+  
+  pointer-events: none;
+  z-index: 2;
+}
+
+
+/* ваш existing pause-overlay должен иметь более высокий z-index */
+#scanner-pause-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3; /* выше рамки */
+}
+
+/* спиннер внутри пауза-слоя */
+.scanner-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top: 4px solid #09f;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); }}
+
+/* === PATCH: плавное появление/исчезновение scanner-pause === */
+.scanner-pause {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.scanner-pause.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* Подсветка карточки при успешной записи */
+.result-section.highlight {
+  animation: highlightFlash 1.6s ease;
+}
+
+/* Анимация подсветки */
+@keyframes highlightFlash {
+  0%   {
+    box-shadow: 0 0 8px 3px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 16px 6px rgba(255, 255, 255, 0.6);
+  }
+  100% {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+}
