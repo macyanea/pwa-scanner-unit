@@ -98,26 +98,26 @@ body, html {
 .scanner-card-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
+  align-items: flex-start;
 }
 
 
 /* Сканер и результат */
+/* Общие стили для сканера и карточки */
 .scanner-section,
 .result-section {
-  width: 100%;
-  max-width: 200px;
-  margin-top: 10px;
   background: rgba(20, 20, 30, 0.9);
   border-radius: 16px;
   padding: 16px;
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-}adeIn 0.8s ease; overflow: hidden;
+  margin-top: 10px;
 }
+
+/* Сканер */
+
+
 /* Сканер */
 .scanner-section {
   flex: 0 0 auto;
