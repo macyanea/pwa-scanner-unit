@@ -115,8 +115,8 @@ body, html {
 }
 /* Сканер */
 .scanner-section {
-  width: 300px;
-  height: 300px; /* фиксируем высоту */
+  width: 200px;
+  height: 200px; /* фиксируем высоту */
   aspect-ratio: 1 / 1;
   position: relative;
   border: 1px solid rgba(255,255,255,0.2);
