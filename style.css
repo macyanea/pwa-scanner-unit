@@ -539,7 +539,8 @@ body, html {
   color: white;
 
   /* 🔽 вот здесь контролируется ширина */
-  width: 120%; 
+  width: 120px; 
+  height: 300px;
   box-sizing: border-box;
 }
 
