@@ -522,18 +522,20 @@ body, html {
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  gap: 16px;
+  gap: 5px;
   flex-wrap: nowrap;
   width: 100%;
   max-width: 100%;
-  overflow-x: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .block-stats {
   background: rgba(0, 255, 0, 0.05);
   border: 1px solid limegreen;
   border-radius: 12px;
-  padding: 16px;
+  padding: 5px;
   color: white;
 
   /* 🔽 вот здесь контролируется ширина */
