@@ -530,16 +530,16 @@ body, html {
 }
 
 .block-stats {
-  flex: 0 0 auto;
-  width: 45vw;           /* или фиксированное 240px */
-  max-width: 100%;
+  background: rgba(0, 255, 0, 0.05);
+  border: 1px solid limegreen;
+  border-radius: 12px;
   padding: 16px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  border: 1px solid rgba(0, 255, 0, 0.3);
-  color: #eee;
-  font-size: 0.9rem;
-  box-shadow: 0 0 8px rgba(0,255,0,0.2);
+  color: white;
+
+  /* 🔽 вот здесь контролируется ширина */
+  max-width: 1300px;     /* уменьшай до нужного значения */
+  width: 100%;          /* позволяет уменьшать при необходимости */
+  box-sizing: border-box;
 }
 
 .block-stats h3 {
