@@ -176,7 +176,9 @@ function logAction(action, date) {
       throw new Error('Ответ сервера не OK');
     }
     updateUI(action, date, time, blockString);
+    loadBlockStats();
     resumeScanner();
+    loadBlockStats();
   })
   .catch(err => {
     console.error('[POST] Ошибка:', err);
@@ -195,11 +197,13 @@ submitFioBtn.addEventListener('click', () => {
   fioInput.value = '';
   closeFioModal();
   logAction('Вход', new Date().toLocaleDateString('ru-RU'));
+  loadBlockStats();
 });
 
 function resumeScanner() {
   document.getElementById('scanner-pause-overlay').classList.remove('visible');
   html5QrCode.resume();
+  loadBlockStats();
 }
 
 function updateUI(action, date, time, blockString) {
@@ -224,8 +228,8 @@ resultCard.classList.add('highlight');
                    <td>${blockString}</td>`;
   historyBody.prepend(row);
   if (historyBody.rows.length > 5) historyBody.deleteRow(-1);
+  loadBlockStats();
 }
-loadBlockStats();
 
 function openFioModal() {
   modalOverlay.classList.remove('hidden');
@@ -265,13 +269,26 @@ function loadBlockStats() {
     .then(r => r.json())
     .then(stats => {
       const list = document.getElementById('stats-list');
-      list.innerHTML = ''; // Очистить старые данные
+      if (!list) return; // 🛑 если элемента нет — выход
+
+      list.innerHTML = ''; // очистить старые данные
+      let total = 0;
+
       Object.entries(stats).forEach(([block, count]) => {
+        total += count;
         const li = document.createElement('li');
         li.textContent = `Блок ${block}: ${count} чел.`;
         list.appendChild(li);
       });
+
+      // ➕ Добавим в конец общее количество
+      const liTotal = document.createElement('li');
+      liTotal.innerHTML = `<strong>Всего: ${total} чел.</strong>`;
+      list.appendChild(liTotal);
     })
     .catch(err => console.error('[STATS] Ошибка:', err));
 }
+
+
+
 
