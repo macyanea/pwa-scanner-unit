@@ -561,6 +561,7 @@ body, html {
   height: calc(var(--size) * 2);
   width: calc(var(--size) * 3);
   position: relative;
+  justify-content: flex-start;
   transform-style: preserve-3d;
   transform-origin: 50% 50%;
   margin-top: calc(var(--size) * 1.5 * -1);
