@@ -566,6 +566,7 @@ body, html {
 .scanner-column {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 5px;
+  align-items: center;       /* центрируем вложенные элементы */
+  justify-content: flex-start;
+  gap: 5px;                 /* равный отступ между сканером и карточкой */
 }
