@@ -547,3 +547,27 @@ body, html {
   padding-left: 20px;
   margin: 0;
 }
+.scanner-stats-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 10px; /* отступы слева и справа */
+  box-sizing: border-box;
+  gap: 5px; /* расстояние между сканером и статистикой */
+}
+
+.scanner-section {
+  width: 200px;
+  aspect-ratio: 1 / 1;
+}
+
+.block-stats {
+  width: 180px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 10px;
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
